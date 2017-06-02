@@ -7,7 +7,11 @@ using MyOnlineShop.Data.Infrastructure;
 using MyOnlineShop.Model.Models;
 namespace MyOnlineShop.Data.Repositories
 {
-    public class ProductCategoryDetailRepository : RepositoryBase<ProductCategoryDetail>
+    public interface IProductCategoryDetailRepository:IRepository<ProductCategoryDetail>
+    {
+
+    }
+    public class ProductCategoryDetailRepository : RepositoryBase<ProductCategoryDetail>, IProductCategoryDetailRepository
     {
         public ProductCategoryDetailRepository(IDbFactory dbFactory) : base(dbFactory)
         {

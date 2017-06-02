@@ -59,6 +59,11 @@ namespace MyOnlineShop.Data.Infrastructure
         {
             return dbSet.ToList();
         }
+        //public IEnumerable<T> GetAllPaging(int? Page,int ProductPerPage)
+        //{
+        //    return dbSet.
+
+        //}
         public virtual IEnumerable<T>GetMany(Expression<Func<T,bool>> Where)
         {
             return dbSet.Where(Where);
