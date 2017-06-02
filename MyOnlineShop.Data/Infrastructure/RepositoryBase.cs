@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyOnlineShop.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T:class
+    public abstract class RepositoryBase<T>:IRepository<T> where T:class
     {
         private MyOnlineShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
@@ -41,13 +41,13 @@ namespace MyOnlineShop.Data.Infrastructure
         {
             dbSet.Remove(entity);
         }
-        public virtual void DeleteMulti(Expression<Func<T,bool>> Where)
+        public virtual void DeleteMulti(Expression<Func<T, bool>> Where)
         {
             IEnumerable<T> objects = dbSet.Where(Where);
             foreach (var obj in objects)
                 dbSet.Remove(obj);
         }
-        public virtual T GetById(int Id)
+        public virtual T GetSingleByID(int Id)
         {
             return dbSet.Find(Id);
         }
@@ -63,5 +63,7 @@ namespace MyOnlineShop.Data.Infrastructure
         {
             return dbSet.Where(Where);
         }
+
+      
     }
 }
