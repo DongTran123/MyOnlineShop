@@ -28,7 +28,7 @@ namespace MyOnlineShop.Model.Models
         public bool? HomeFlag { set; get; }
 
         
-        public virtual IEnumerable<ProductCategoryDetails> ProductCategoryDetails { set; get; }
+        public virtual IEnumerable<ProductCategoryDetail> ProductCategoryDetails { set; get; }
 
     }
 }

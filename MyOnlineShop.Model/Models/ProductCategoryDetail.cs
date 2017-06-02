@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MyOnlineShop.Model.Models
 {
     [Table("ProductCategoryDetails")]
-    public  class ProductCategoryDetails:ASeoCreateStatusImp
+    public  class ProductCategoryDetail:ASeoCreateStatusImp
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -13,7 +13,7 @@ namespace MyOnlineShop.Model.Models
         [Required]
         public int ProductCategoryDetailID { set; get; }
         [ForeignKey("ProductCategoryDetailID")]
-        public virtual ProductCategoryDetails ProductCategoryDetail { set; get; }
+        public virtual ProductCategoryDetail ProductCategoryDetail { set; get; }
         [Required]
         [MaxLength(250)]
         public string Name { set; get; }
