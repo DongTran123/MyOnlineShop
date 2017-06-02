@@ -8,7 +8,7 @@ namespace MyOnlineShop.Model.Models
     public class Footer
     {
         [Key]
-        [StringLength(50)]
+        [MaxLength(50)]
         public string ID { set; get; }
         [Required]
         public string Contentt { set; get; } 

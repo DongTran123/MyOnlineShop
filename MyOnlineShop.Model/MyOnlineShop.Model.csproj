@@ -54,6 +54,9 @@
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuGroup.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductCategoryDetails.cs" />
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

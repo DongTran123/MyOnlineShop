@@ -10,11 +10,11 @@ namespace MyOnlineShop.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public  int Id { set; get; }
-        [StringLength(50)]
+        [MaxLength(50)]
         public string Name { set; get; }
-        [StringLength(500)]
+        [MaxLength(500)]
         public string Description { set; get; }
-        [StringLength(500)]
+        [MaxLength(500)]
         public string URL { set; get; }
 
         public int DisplayOrder { set; get; }
