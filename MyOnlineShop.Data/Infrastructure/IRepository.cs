@@ -14,7 +14,13 @@ namespace MyOnlineShop.Data.Infrastructure
         void Add(T Entity);
         void Update(T Entity);
         void Delete(T Entity);
-        T GetByID(int ID);
+        void DeleteMulti(Expression<Func<T, bool>> Where);
+        T GetSingleByID(int ID);
+        T GetSingleByCondition(Expression<Func<T,bool>> Where);
+        IEnumerable<T> GetAll();
+        IEnumerable<T> GetMany(Expression<Func<T, bool>> Where);
+
+
         
     }
 }
