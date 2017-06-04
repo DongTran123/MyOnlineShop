@@ -1,11 +1,8 @@
 ﻿using MyOnlineShop.Model.Inheritance;
-using System;
+
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyOnlineShop.Model.Models
 {
@@ -27,8 +24,8 @@ namespace MyOnlineShop.Model.Models
         public string Description { set; get; }
         public bool? HomeFlag { set; get; }
 
-        
-        public virtual IEnumerable<ProductCategoryDetail> ProductCategoryDetails { set; get; }
+       
+       public virtual IEnumerable<Product> Products { set; get; }
 
     }
 }

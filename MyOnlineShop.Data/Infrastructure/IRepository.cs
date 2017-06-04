@@ -12,6 +12,7 @@ namespace MyOnlineShop.Data.Infrastructure
     {
         
         void Add(T Entity);
+        T AddReturn(T Entity);
         void Update(T Entity);
         void Delete(T Entity);
         void DeleteMulti(Expression<Func<T, bool>> Where);

@@ -7,13 +7,13 @@ namespace MyOnlineShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-beta1-60406")]
-    public sealed partial class InitialDB : IMigrationMetadata
+    public sealed partial class UpdatePromotionPrice : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatePromotionPrice));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706020914149_InitialDB"; }
+            get { return "201706040444191_UpdatePromotionPrice"; }
         }
         
         string IMigrationMetadata.Source

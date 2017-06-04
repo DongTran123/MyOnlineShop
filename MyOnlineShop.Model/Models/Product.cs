@@ -11,9 +11,10 @@ namespace MyOnlineShop.Model.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
         [Required]
-        public int ProductCategoryDetailID { set; get; }
-        [ForeignKey("ProductCategoryDetailID")]
-        public virtual ProductCategoryDetail ProductCategoryDetail { set; get; }
+        public int ProductCategoryID { set; get; }
+        [Required]
+        public int TradeMarkID { set; get; }
+
         [Required]
         [MaxLength(250)]
         public string Name { set; get; }
@@ -31,7 +32,7 @@ namespace MyOnlineShop.Model.Models
         public string MoreImage { set; get; }
         [Required]
         public decimal Price { set; get; }
-        public decimal PromotionPrice { set; get; }
+        public decimal? PromotionPrice { set; get; }
         [Required]
         public int Quantity { set; get; }
         public int? Warranty { set; get; }
@@ -40,6 +41,12 @@ namespace MyOnlineShop.Model.Models
         public string Contentt { set; get; }
         public int ViewCount { set; get; }
         public bool? HomeFlag { set; get; }
+
+        [ForeignKey("ProductCategoryID")]
+        public virtual ProductCategory ProductCategory { set; get; }
+
+        [ForeignKey("TradeMarkID")]
+        public virtual TradeMark TradeMark { set; get; }
 
     }
 }

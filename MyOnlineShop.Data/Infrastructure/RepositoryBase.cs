@@ -57,7 +57,7 @@ namespace MyOnlineShop.Data.Infrastructure
         }
         public virtual IEnumerable<T> GetAll()
         {
-            return dbSet.ToList();
+            return dbSet;
         }
         //public IEnumerable<T> GetAllPaging(int? Page,int ProductPerPage)
         //{
@@ -69,6 +69,9 @@ namespace MyOnlineShop.Data.Infrastructure
             return dbSet.Where(Where);
         }
 
-      
+        public virtual T AddReturn(T Entity)
+        {
+            return dbSet.Add(Entity);
+        }
     }
 }

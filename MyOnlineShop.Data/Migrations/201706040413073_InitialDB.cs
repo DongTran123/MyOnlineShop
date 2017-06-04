@@ -63,33 +63,12 @@ namespace MyOnlineShop.Data.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
-                "dbo.ProductCategoryDetails",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        ProductCategoryID = c.Int(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 250),
-                        Alias = c.String(maxLength: 250),
-                        DisplayOrder = c.Int(),
-                        HomeFlag = c.Boolean(),
-                        CreateDate = c.DateTime(),
-                        CreateBy = c.String(maxLength: 50),
-                        UpdateDate = c.DateTime(),
-                        UpdateBy = c.String(),
-                        MetaKeyword = c.String(maxLength: 250),
-                        MetaDescription = c.String(maxLength: 250),
-                        Status = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ProductCategories", t => t.ProductCategoryID, cascadeDelete: true)
-                .Index(t => t.ProductCategoryID);
-            
-            CreateTable(
                 "dbo.Products",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        ProductCategoryDetailID = c.Int(nullable: false),
+                        ProductCategoryID = c.Int(nullable: false),
+                        TradeMarkID = c.Int(nullable: false),
                         Name = c.String(nullable: false, maxLength: 250),
                         Alias = c.String(maxLength: 250),
                         Image = c.String(maxLength: 500),
@@ -114,8 +93,31 @@ namespace MyOnlineShop.Data.Migrations
                         Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ProductCategoryDetails", t => t.ProductCategoryDetailID, cascadeDelete: true)
-                .Index(t => t.ProductCategoryDetailID);
+                .ForeignKey("dbo.ProductCategories", t => t.ProductCategoryID, cascadeDelete: true)
+                .ForeignKey("dbo.TradeMarks", t => t.TradeMarkID, cascadeDelete: true)
+                .Index(t => t.ProductCategoryID)
+                .Index(t => t.TradeMarkID);
+            
+            CreateTable(
+                "dbo.TradeMarks",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 250),
+                        Alias = c.String(maxLength: 250),
+                        DisplayOrder = c.Int(),
+                        Image = c.String(maxLength: 500),
+                        Description = c.String(maxLength: 500),
+                        HomeFlag = c.Boolean(),
+                        CreateDate = c.DateTime(),
+                        CreateBy = c.String(maxLength: 50),
+                        UpdateDate = c.DateTime(),
+                        UpdateBy = c.String(),
+                        MetaKeyword = c.String(maxLength: 250),
+                        MetaDescription = c.String(maxLength: 250),
+                        Status = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.Slides",
@@ -134,15 +136,15 @@ namespace MyOnlineShop.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Products", "ProductCategoryDetailID", "dbo.ProductCategoryDetails");
-            DropForeignKey("dbo.ProductCategoryDetails", "ProductCategoryID", "dbo.ProductCategories");
+            DropForeignKey("dbo.Products", "TradeMarkID", "dbo.TradeMarks");
+            DropForeignKey("dbo.Products", "ProductCategoryID", "dbo.ProductCategories");
             DropForeignKey("dbo.Menus", "GroupID", "dbo.MenuGroups");
-            DropIndex("dbo.Products", new[] { "ProductCategoryDetailID" });
-            DropIndex("dbo.ProductCategoryDetails", new[] { "ProductCategoryID" });
+            DropIndex("dbo.Products", new[] { "TradeMarkID" });
+            DropIndex("dbo.Products", new[] { "ProductCategoryID" });
             DropIndex("dbo.Menus", new[] { "GroupID" });
             DropTable("dbo.Slides");
+            DropTable("dbo.TradeMarks");
             DropTable("dbo.Products");
-            DropTable("dbo.ProductCategoryDetails");
             DropTable("dbo.ProductCategories");
             DropTable("dbo.Menus");
             DropTable("dbo.MenuGroups");

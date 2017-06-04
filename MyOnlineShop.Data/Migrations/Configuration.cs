@@ -14,7 +14,7 @@ namespace MyOnlineShop.Data.Migrations
 
         protected override void Seed(MyOnlineShop.Data.MyOnlineShopDbContext context)
         {
-            
+
         }
     }
 }
