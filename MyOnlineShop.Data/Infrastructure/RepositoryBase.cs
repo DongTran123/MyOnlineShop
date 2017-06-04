@@ -16,6 +16,7 @@ namespace MyOnlineShop.Data.Infrastructure
         protected IDbFactory DbFactory
         {
             get;
+
             private set;
         }
 
@@ -57,7 +58,7 @@ namespace MyOnlineShop.Data.Infrastructure
         }
         public virtual IEnumerable<T> GetAll()
         {
-            return dbSet;
+            return dbSet/*.ToList()*/;
         }
         //public IEnumerable<T> GetAllPaging(int? Page,int ProductPerPage)
         //{
