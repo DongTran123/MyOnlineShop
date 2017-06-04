@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyOnlineShop.Web.Infrastructure.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +8,7 @@ using System.Web.Http;
 
 namespace MyOnlineShop.Web.Api
 {
-    public class TestController : ApiController
+    public class TestController : ApiControllerBase
     {
         // GET api/<controller>
         public IEnumerable<string> Get()
