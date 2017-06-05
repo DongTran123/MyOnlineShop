@@ -1,10 +1,11 @@
 ﻿using System;
 using MyOnlineShop.Model.Models;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MyOnlineShop.Data
 {
-    public class MyOnlineShopDbContext : DbContext
+    public class MyOnlineShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public MyOnlineShopDbContext() : base("MyOnlineShop")
         {
@@ -22,6 +23,9 @@ namespace MyOnlineShop.Data
         {
             base.OnModelCreating(modelBuilder);
         }
-
+        public static MyOnlineShopDbContext Create()
+        {
+            return new MyOnlineShopDbContext();
+        }
     }
 }

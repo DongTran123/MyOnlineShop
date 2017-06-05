@@ -12,16 +12,21 @@ using MyOnlineShop.Service;
 using System.Web.Mvc;
 using System.Web.Http;
 using Autofac.Integration.WebApi;
+using System.Web;
+using Microsoft.Owin.Security.DataProtection;
+using MyOnlineShop.Model.Models;
+using Microsoft.AspNet.Identity;
 
 [assembly: OwinStartup(typeof(MyOnlineShop.Web.App_Start.Startup))]
 
 namespace MyOnlineShop.Web.App_Start
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
             configAutofac(app);
+            ConfigureAuth(app);
         }
         private void configAutofac(IAppBuilder app)
         {
@@ -35,6 +40,13 @@ namespace MyOnlineShop.Web.App_Start
             builder.RegisterType<DbFactoryImp>().As<IDbFactory>().InstancePerRequest();
 
             builder.RegisterType<MyOnlineShopDbContext>().AsSelf().InstancePerRequest();
+
+            //Identity
+            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
+            builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(ProductCategoryRepository).Assembly)
@@ -52,6 +64,9 @@ namespace MyOnlineShop.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(ProductService).Assembly)
                .Where(t => t.Name.EndsWith("Service"))
                .AsImplementedInterfaces().InstancePerRequest();
+
+
+
 
             Autofac.IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
