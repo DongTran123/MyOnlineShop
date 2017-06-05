@@ -12,11 +12,12 @@ namespace MyOnlineShop.Web.Infrastructure.Core
 {
     public class ApiControllerBase : ApiController
     {
+        private IErrorService _IErrorService { set; get; }
         public ApiControllerBase(IErrorService IErrorService)
         {
             _IErrorService = IErrorService;
         }
-        private IErrorService _IErrorService { set; get; }
+        
         protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> function)
         {
             HttpResponseMessage response = null;
@@ -24,19 +25,19 @@ namespace MyOnlineShop.Web.Infrastructure.Core
             {
                 response = function.Invoke();
             }
-            catch (DbEntityValidationException ex)
-            {
-                foreach (var eve in ex.EntityValidationErrors)
-                {
-                    Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
-                    }
-                }
-                LogError(ex);
-                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
-            }
+            //catch (DbEntityValidationException ex)
+            //{
+            //    foreach (var eve in ex.EntityValidationErrors)
+            //    {
+            //        Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+            //        foreach (var ve in eve.ValidationErrors)
+            //        {
+            //            Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+            //        }
+            //    }
+            //    LogError(ex);
+            //    response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
+            //}
             catch (DbUpdateException dbEx)
             {
                 LogError(dbEx);

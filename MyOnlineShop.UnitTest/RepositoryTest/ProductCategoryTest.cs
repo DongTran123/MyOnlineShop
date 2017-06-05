@@ -8,22 +8,28 @@ namespace MyOnlineShop.UnitTest.RepositoryTest
     [TestClass]
     public class ProductCategoryTest
     {
-        IDbFactory IDbFactory;
-        IProductCategoryRepository IProductCategoryRepository;
-        IUnitOfWork IUnitOfWork;
+        IDbFactory _IDbFactory;
+        IProductCategoryRepository _IProductCategoryRepository;
+        IUnitOfWork _IUnitOfWork;
         [TestInitialize]
-        public void Initialze()
+        public void Initialze(/*IDbFactory IDbFactory, IProductCategoryRepository IProductCategoryRepository, IUnitOfWork IUnitOfWork*/)
         {
-            IDbFactory = new DbFactoryImp();
-            IUnitOfWork = new UnitOfWork(IDbFactory);
-            IProductCategoryRepository = new ProductCategoryRepository(IDbFactory);
-           
+            //_IDbFactory = IDbFactory;
+            //_IProductCategoryRepository = IProductCategoryRepository;
+            //_IUnitOfWork = IUnitOfWork;
+            _IDbFactory = new DbFactoryImp();
+            _IUnitOfWork = new UnitOfWork(_IDbFactory);
+            _IProductCategoryRepository = new ProductCategoryRepository(_IDbFactory);
+
+
         }
         [TestMethod]
         public void GetAll()
         {
-            var result = IProductCategoryRepository.GetAll();
+            var result = _IProductCategoryRepository.GetAll();
+
             Assert.IsNotNull(result);
+
         }
     }
 }

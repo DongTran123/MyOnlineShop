@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyOnlineShop.Data.Infrastructure;
 using MyOnlineShop.Data.Repositories;
+using MyOnlineShop.Model.Models;
 using MyOnlineShop.Service;
 using System;
 using System.Collections.Generic;
@@ -13,23 +14,26 @@ namespace MyOnlineShop.UnitTest.ServiceTest
     [TestClass]
     public class ProductServiceTest
     {
-        IDbFactory IDbFactory;
-        IUnitOfWork IUnitOfWork;
-        IProductRepository IProductRepository;
+        IDbFactory _IDbFactory;
+        IUnitOfWork _IUnitOfWork;
+        IProductRepository _IProductRepository;
         IProductService IProductService;
         [TestInitialize]
         public void Initialize()
         {
-           
-            IDbFactory = new DbFactoryImp();
-            this.IUnitOfWork = new UnitOfWork(IDbFactory);
-            this.IProductRepository = new ProductRepository(IDbFactory);
-            IProductService = new ProductService(IProductRepository, IUnitOfWork);
+            _IDbFactory = new DbFactoryImp();
+            _IUnitOfWork = new UnitOfWork(_IDbFactory);
+            _IProductRepository = new ProductRepository(_IDbFactory);
+            IProductService = new ProductService(_IProductRepository, _IUnitOfWork);
+        }
+        public ProductServiceTest()
+        {
+
         }
         [TestMethod]
         public void GetAllService()
         {
-            var result = IProductService.GetAll();
+           var result = IProductService.GetAll().ToList();
             Assert.IsNotNull(result);
         }
     }

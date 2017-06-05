@@ -41,6 +41,7 @@ namespace MyOnlineShop.Data.Infrastructure
         public virtual void Delete(T entity)
         {
             dbSet.Remove(entity);
+           
         }
         public virtual void DeleteMulti(Expression<Func<T, bool>> Where)
         {
@@ -58,7 +59,7 @@ namespace MyOnlineShop.Data.Infrastructure
         }
         public virtual IEnumerable<T> GetAll()
         {
-            return dbSet/*.ToList()*/;
+            return dbSet;
         }
         //public IEnumerable<T> GetAllPaging(int? Page,int ProductPerPage)
         //{
