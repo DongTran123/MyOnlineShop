@@ -1,5 +1,8 @@
-﻿using MyOnlineShop.Service;
+﻿using AutoMapper;
+using MyOnlineShop.Service;
 using MyOnlineShop.Web.Infrastructure.Core;
+using MyOnlineShop.Web.Models;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -21,7 +24,8 @@ namespace MyOnlineShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 var ListProduct = _IProductService.GetAll();
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, ListProduct);
+                var ListProductVM = Mapper.Map<List<ProductViewModel>>(ListProduct);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, ListProductVM);
                 return response;
             });
         }
