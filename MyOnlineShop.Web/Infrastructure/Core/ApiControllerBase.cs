@@ -2,6 +2,8 @@
 using MyOnlineShop.Service;
 using System;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -22,6 +24,19 @@ namespace MyOnlineShop.Web.Infrastructure.Core
             {
                 response = function.Invoke();
             }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+                    }
+                }
+                LogError(ex);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
+            }
             catch (DbUpdateException dbEx)
             {
                 LogError(dbEx);
@@ -32,7 +47,7 @@ namespace MyOnlineShop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-            return null;
+            return response;
         }
 
         private void LogError(Exception ex)
