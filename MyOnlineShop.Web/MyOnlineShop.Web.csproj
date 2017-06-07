@@ -292,10 +292,10 @@
     <Content Include="AppSetting.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Layout\LayoutClient.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
     <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyOnlineShop.Common\MyOnlineShop.Common.csproj">
