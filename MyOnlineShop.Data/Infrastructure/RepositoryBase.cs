@@ -57,9 +57,9 @@ namespace MyOnlineShop.Data.Infrastructure
         {
             return dbSet.SingleOrDefault(Where);
         }
-        public virtual IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll() 
         {
-            return dbSet;
+            return dbSet.ToList();
         }
         //public IEnumerable<T> GetAllPaging(int? Page,int ProductPerPage)
         //{

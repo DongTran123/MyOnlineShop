@@ -200,6 +200,7 @@
     <Compile Include="AutoMappings\AutoMapperConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +211,59 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\client\css\bootstrap.css" />
+    <Content Include="Assest\client\css\flexslider.css" />
+    <Content Include="Assest\client\css\memenu.css" />
+    <Content Include="Assest\client\css\style.css" />
+    <Content Include="Assest\client\images\1.jpg" />
+    <Content Include="Assest\client\images\b1.jpg" />
+    <Content Include="Assest\client\images\b2.jpg" />
+    <Content Include="Assest\client\images\b3.jpg" />
+    <Content Include="Assest\client\images\b4.jpg" />
+    <Content Include="Assest\client\images\b5.jpg" />
+    <Content Include="Assest\client\images\blo.jpg" />
+    <Content Include="Assest\client\images\cart.png" />
+    <Content Include="Assest\client\images\close_1.png" />
+    <Content Include="Assest\client\images\co.png" />
+    <Content Include="Assest\client\images\img-sprite.png" />
+    <Content Include="Assest\client\images\iphone.jpg" />
+    <Content Include="Assest\client\images\iphone2.png" />
+    <Content Include="Assest\client\images\lo.png" />
+    <Content Include="Assest\client\images\lo1.png" />
+    <Content Include="Assest\client\images\lo2.png" />
+    <Content Include="Assest\client\images\lo3.png" />
+    <Content Include="Assest\client\images\lo4.png" />
+    <Content Include="Assest\client\images\lo5.png" />
+    <Content Include="Assest\client\images\logo.png" />
+    <Content Include="Assest\client\images\p1.jpg" />
+    <Content Include="Assest\client\images\p2.jpg" />
+    <Content Include="Assest\client\images\p3.jpg" />
+    <Content Include="Assest\client\images\p4.jpg" />
+    <Content Include="Assest\client\images\pi.jpg" />
+    <Content Include="Assest\client\images\pi1.jpg" />
+    <Content Include="Assest\client\images\pi2.jpg" />
+    <Content Include="Assest\client\images\pi3.jpg" />
+    <Content Include="Assest\client\images\pi4.jpg" />
+    <Content Include="Assest\client\images\pi5.jpg" />
+    <Content Include="Assest\client\images\pic1.jpg" />
+    <Content Include="Assest\client\images\pic2.jpg" />
+    <Content Include="Assest\client\images\pro.jpg" />
+    <Content Include="Assest\client\images\product1.jpg" />
+    <Content Include="Assest\client\images\s1.jpg" />
+    <Content Include="Assest\client\images\si.jpg" />
+    <Content Include="Assest\client\images\si1.jpg" />
+    <Content Include="Assest\client\images\si2.jpg" />
+    <Content Include="Assest\client\images\t1.jpg" />
+    <Content Include="Assest\client\images\t2.jpg" />
+    <Content Include="Assest\client\images\t3.jpg" />
+    <Content Include="Assest\client\images\t4.jpg" />
+    <Content Include="Assest\client\images\tick1.png" />
+    <Content Include="Assest\client\js\jquery.flexslider.js" />
+    <Content Include="Assest\client\js\jquery.min.js" />
+    <Content Include="Assest\client\js\main.js" />
+    <Content Include="Assest\client\js\memenu.js" />
+    <Content Include="Assest\client\js\responsiveslides.min.js" />
+    <Content Include="Assest\client\js\simpleCart.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -224,7 +278,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assest\admin\" />
-    <Folder Include="Assest\client\" />
     <Folder Include="Infrastructure\Extensions\" />
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Scripts\spa\" />
@@ -235,7 +288,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="ConnectionString.config" />
+    <Content Include="AppSetting.config" />
     <None Include="Project_Readme.html" />
+    <Content Include="Views\Layout\LayoutClient.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyOnlineShop.Common\MyOnlineShop.Common.csproj">

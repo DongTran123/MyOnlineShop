@@ -1,0 +1,54 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Store A Ecommerce Category Flat Bootstarp Resposive Website Template | Products :: w3layouts</title>
+    <link href="~/Assest/Client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+   
+    <script src="~/Assest/Client/js/jquery.min.js"></script>
+ 
+    <link href="~/Assest/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Assest/Client/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Assest/Client/js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+</head>
+<body>
+    <!--header-->
+    @{ Html.RenderAction("Header", "Home");}
+    <!--content-->
+    <!---->
+    <div class="product">
+        <div class="container">
+            @{ Html.RenderAction("Category", "Home");}
+            @RenderBody()
+            <div class="clearfix"> </div>
+            @*<nav class="in">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2 <span class="sr-only"></span></a></li>
+                    <li><a href="#">3 <span class="sr-only"></span></a></li>
+                    <li><a href="#">4 <span class="sr-only"></span></a></li>
+                    <li><a href="#">5 <span class="sr-only"></span></a></li>
+                    <li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
+                </ul>
+            </nav>*@
+        </div>
+
+    </div>
+
+    <!---->
+    <!--//content-->
+    @{ Html.RenderAction("Footer","Home");}
+</body>
+</html>

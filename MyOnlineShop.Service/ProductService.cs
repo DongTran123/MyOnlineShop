@@ -16,6 +16,7 @@ namespace MyOnlineShop.Service
         Product GetSingleByID(int Id);
         Product GetSingleByCondition(Expression<Func<Product, bool>> Where);
         IEnumerable<Product> GetAll();
+        ICollection<Product> GetAllColection();
         IEnumerable<Product> GetMany(Expression<Func<Product, bool>> Where);
         void Save();
     }
@@ -64,6 +65,11 @@ namespace MyOnlineShop.Service
         {
 
             IUnitOfWork.Commit();
+        }
+
+        public ICollection<Product> GetAllColection()
+        {
+           return  IProductRepository.GetAllColection();
         }
     }
 }

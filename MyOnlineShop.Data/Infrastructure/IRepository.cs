@@ -20,6 +20,7 @@ namespace MyOnlineShop.Data.Infrastructure
         T GetSingleByCondition(Expression<Func<T,bool>> Where);
         IEnumerable<T> GetAll();
         //IEnumerable<T> GetAllPaging(int? Page);
+
         IEnumerable<T> GetMany(Expression<Func<T, bool>> Where);
 
 
